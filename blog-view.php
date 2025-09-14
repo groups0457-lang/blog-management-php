@@ -1,0 +1,74 @@
+<?php 
+session_start();
+$logged = false;
+if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+	$logged = true;
+	$user_id = $_SESSION['user_id'];
+}
+
+if (isset($_GET['post_id'])) {
+
+    include_once("admin/data/Post.php");
+    include_once("db_conn.php");
+    $id = $_GET['post_id'];
+    $post = getById($conn, $id);
+    $categories = get5Categoies($conn); 
+
+    if ($post == 0) {
+        header("Location: blog.php");
+        exit;
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog - <?=$post['post_title']?></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	  <link rel="icon" type="image/png" href="profile.png?v=1">
+
+</head>
+<body>
+	<?php include 'inc/NavBar.php'; ?>
+    
+    <div class="container mt-5">
+    	<section class="d-flex">
+
+  	    <main class="main-blog">
+  	    	<div class="card main-blog-card mb-5">
+				<img src="upload/blog/<?=$post['cover_url']?>" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title"><?=$post['post_title']?></h5>
+					<p class="card-text"><?=$post['post_text']?></p>
+				</div>
+			</div>
+		</main>
+
+		<aside class="aside-main">
+		   <div class="list-group category-aside">
+			  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+			    Category
+			  </a>
+			  <?php foreach ($categories as $category ) { ?>
+			  <a href="category.php?category_id=<?=$category['id']?>"
+			     class="list-group-item list-group-item-action">
+			  	<?php echo $category['category']; ?>
+			  </a>
+			  <?php } ?>
+			</div>
+		</aside>
+		</section>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<?php 
+} else {
+	header("Location: blog.php");
+	exit;
+} 
+?>

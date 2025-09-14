@@ -1,0 +1,115 @@
+img {
+	max-width: 100%;
+}
+.main-banner {
+	width: 100%;
+	height: 50vh;
+	background: url("../img/welcome.jpg") center;
+	background-size: 100%;
+}
+.main-blog-card {
+	width: 90%;
+}
+.category-aside {
+	width: 100%;
+}
+.main-blog {
+	width: 70%;
+}
+.aside-main {
+	width: 30%;
+}
+
+.w-450 {
+	width: 450px;
+}
+.vh-100 {
+	min-height: 100vh;
+}
+/*admin*/
+.section-1 {
+	width: 100%;
+	padding: 15px;
+}
+.main-table {
+   width: 90%;
+   max-width: 700px;
+}
+.react-btns i {
+	font-size: 24px;
+	color: #222;
+	cursor: pointer;
+}
+.react-btns a  {
+	text-decoration: none;
+	color: #222;
+	cursor: pointer;
+}
+.react-btns a:hover  {
+	opacity: .8;
+}
+.react-btns .like:hover  {
+	color: #0088FF;
+}
+.react-btns .liked  {
+	color: #0088FF;
+}
+.comments .comment span {
+   color: #0088FF;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .aside-main {
+  	display: none;
+  }
+  .main-blog {
+	width: 100%;
+  }
+  .main-blog-card {
+	width: 100%;
+}
+}
+
+
+
+
+/* Styles for Slider (Carousel) */
+.carousel-item img {
+    height: 450px; /* Or adjust to your preference */
+    object-fit: cover; /* This makes the image cover the area without distortion */
+}
+
+/* Styles for Blog Post Cards */
+.card-img-top {
+    height: 200px; /* Fixed height for all card images */
+    object-fit: cover;
+}
+
+.card {
+    /* Optional: adds a subtle shadow for a lifting effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.about h1 {
+    text-align: center;
+    color: #333;
+}
+.about p {
+	margin-bottom: 20px;
+	color: #555;
+}
